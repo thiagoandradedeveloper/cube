@@ -5,6 +5,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    user-select: none;
 }
 body{
     display: flex;
@@ -44,6 +45,7 @@ body{
     transform-style: preserve-3d;
     transform: rotateY(calc(var(--i) * 90deg)) translateZ(120px);
     border: none;
+    border: thin solid gray;
 }
 .box .card .imgBx{
     position: relative;
@@ -81,7 +83,7 @@ body{
     display: flex;
     gap: 30px;
 }
-.btns div{
+.btns div:nth-child(1), .btns div:nth-child(3) {
     position: relative;
     width: 60px;
     height: 60px;
@@ -92,10 +94,10 @@ body{
     justify-content: center;
     align-items: center;
 }
-.btns div:active{
+.btns div:nth-child(1):active, .btns div:nth-child(3):active{
     background: #333;
 }
-.btns div::before{
+.btns div:nth-child(1):before, .btns div:nth-child(3):before{
     content: '';
     position: absolute;
     width: 15px;
@@ -110,4 +112,14 @@ body{
 .btns div:active::before{
     border-top: 3px solid #fff;
     border-right: 3px solid #fff;
+}
+.btns div img{
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid #222;
+}
+.btns div img:active{
+    background: yellow;
 }
